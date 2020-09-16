@@ -69,3 +69,7 @@ JRT_END
 JRT_LEAF(oopDesc*, ShenandoahRuntime::load_reference_barrier_native(oopDesc * src, oop* load_addr))
   return (oopDesc*) ShenandoahBarrierSet::barrier_set()->load_reference_barrier_native(oop(src), load_addr);
 JRT_END
+
+JRT_LEAF(oopDesc*, ShenandoahRuntime::load_reference_barrier_jvmci(JavaThread* thread, oopDesc* obj))
+  return (oopDesc*) ShenandoahBarrierSet::barrier_set()->load_reference_barrier(oop(obj));
+JRT_END

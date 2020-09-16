@@ -275,10 +275,10 @@ public class VMProps implements Callable<Map<String, String>> {
             case Serial:
             case Parallel:
             case G1:
+            case Shenandoah:
                 return true;
             case Epsilon:
             case Z:
-            case Shenandoah:
                 return false;
             default:
                 throw new IllegalStateException("Unknown GC " + gc.name());

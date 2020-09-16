@@ -386,6 +386,10 @@ class JVMCIRuntime: public CHeapObj<mtJVMCI> {
   static void write_barrier_pre(JavaThread* thread, oopDesc* obj);
   static void write_barrier_post(JavaThread* thread, void* card);
 #endif
+#if INCLUDE_SHENANDOAHGC
+  static void shenandoah_concmark_barrier(JavaThread* thread, oopDesc* obj);
+  static oopDesc* shenandoah_load_reference_barrier(JavaThread* thread, oopDesc* obj);
+#endif
   static jboolean validate_object(JavaThread* thread, oopDesc* parent, oopDesc* child);
 
   // used to throw exceptions from compiled JVMCI code
